@@ -1,8 +1,9 @@
 function Character({character}) {
   return (
-    <div key={character.id}>
-      <p>{character.name}</p>
-      <img src={character.image} alt={character.name} />
+    <div className="text-center  p-5">
+      <h2>{character.name}</h2>
+      <img className="img-fluid rounded-pill" src={character.image} alt={character.name} />
+        <h3>{character.origin.name}</h3>
     </div>
   );
 }
