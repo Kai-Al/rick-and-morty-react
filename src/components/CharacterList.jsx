@@ -7,6 +7,7 @@ import {
   gql,
 } from "@apollo/client";
 import Character from "./Character";
+import NavPage from "./NavPage";
 
 function CharacterList() {
   const [characters, setCharacters] = useState([]);
@@ -43,17 +44,7 @@ function CharacterList() {
   }, [page]);
   return (
     <div className="container">
-      <nav className="navbar navbar-light bg-light">
-        <div className="container-fluid">
-          <button className="btn btn-primary" onClick={() => setPage(page - 1)}>
-            Back
-          </button>
-          <a className="navbar-brand">Page {page}</a>
-          <button className="btn btn-primary" onClick={() => setPage(page + 1)}>
-            Next
-          </button>
-        </div>
-      </nav>
+      <NavPage page={page} setPage={setPage} />
 
       {loading ? (
         <div className="spinner-border" role="status"></div>
@@ -68,6 +59,7 @@ function CharacterList() {
           })}
         </div>
       )}
+      <NavPage page={page} setPage={setPage} />
     </div>
   );
 }
